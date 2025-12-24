@@ -1,0 +1,123 @@
+.root {
+    -fx-font-family: "Segoe UI";
+}
+
+.login-card {
+    -fx-background-color: #ffffff;
+    -fx-padding: 30;
+    -fx-background-radius: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 20, 0.2, 0, 4);
+    -fx-pref-width: 300px;
+    -fx-max-width: 300px;
+}
+
+.dashboard {
+    -fx-background-color: #F4F6FA;
+}
+
+.sidebar {
+    -fx-background-color: #293241;
+}
+
+.sidebar-button {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: transparent;
+    -fx-padding: 12 16;
+    -fx-font-size: 15px;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: #3D4757;
+}
+
+.button-main {
+    -fx-background-color: #3D5AFE;
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-background-radius: 10;
+}
+
+.button-main:hover {
+    -fx-background-color: #304FFE;
+}
+
+.active-sidebar-button {
+    -fx-background-color: #3D5AFE;
+    -fx-font-weight: bold;
+    -fx-border-width: 0 0 0 4px;
+    -fx-border-color: #F4F6FA;
+}
+
+.active-sidebar-button:hover {
+    -fx-background-color: #3D5AFE;
+}
+
+.top-bar {
+    -fx-background-color: #293241;
+    -fx-padding: 10 0;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.logo-text {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.top-nav-button {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: transparent;
+    -fx-padding: 10 15;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+}
+
+.top-nav-button:hover {
+    -fx-background-color: #3D4757;
+    -fx-border-width: 0 0 3px 0;
+    -fx-border-color: #3D5AFE;
+    -fx-cursor: hand;
+}
+
+.active-top-nav-button {
+    -fx-border-width: 0 0 3px 0;
+    -fx-border-color: #FF5722;
+    -fx-font-weight: bold;
+    -fx-background-color: #3D4757;
+}
+
+.active-top-nav-button:hover {
+    -fx-background-color: #3D4757;
+}
+
+.content-pane {
+    -fx-background-color: #F4F6FA;
+    -fx-padding: 20px;
+}
+
+.home-background {
+    -fx-background-image: url('launcher.jpg');
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+.social-button {
+    -fx-background-color: #5181b8; //вк
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 15;
+    -fx-background-radius: 5;
+}
+
+.social-button:hover {
+    -fx-background-color: #4471a5;
+}
+
+.discord-button {
+    -fx-background-color: #5865F2; //дс
+}
+
+.discord-button:hover {
+    -fx-background-color: #4a54c9;
+}

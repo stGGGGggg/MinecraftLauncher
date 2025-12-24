@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="DashboardController"
+            stylesheets="@style.css"
+            styleClass="dashboard">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" styleClass="top-bar">
+            <Label text="TNT:LAUNCHER" styleClass="logo-text">
+                <HBox.margin>
+                    <Insets left="20.0" right="40.0" />
+                </HBox.margin>
+            </Label>
+
+            <HBox spacing="10" styleClass="top-nav-buttons">
+                <Button fx:id="homeButton" text="Главная" styleClass="top-nav-button" onAction="#onHomeClicked"/>
+                <Button text="Игры" styleClass="top-nav-button" />
+                <Button text="Сборки" styleClass="top-nav-button" />
+                <Button text="Сервера" styleClass="top-nav-button" />
+                <Button text="Оформление" styleClass="top-nav-button" />
+                <Button fx:id="settingsButton" text="Настройки" styleClass="top-nav-button" onAction="#onSettingsClicked"/>
+            </HBox>
+
+            <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                <Button text="Выход" styleClass="top-nav-button" onAction="#onExit">
+                    <HBox.margin>
+                        <Insets right="20.0" />
+                    </HBox.margin>
+                </Button>
+            </HBox>
+        </HBox>
+    </top>
+
+    <center>
+        <StackPane fx:id="contentArea" />
+    </center>
+
+</BorderPane>

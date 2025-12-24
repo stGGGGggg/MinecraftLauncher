@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            styleClass="home-background" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+            AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+    <StackPane style="-fx-background-color: rgba(0, 0, 0, 0.45);"
+               AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+               AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"/>
+
+    <GridPane hgap="30.0" AnchorPane.topAnchor="30.0" AnchorPane.bottomAnchor="30.0"
+              AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" prefWidth="300.0" />
+            <ColumnConstraints hgrow="ALWAYS" />
+        </columnConstraints>
+
+        <VBox GridPane.columnIndex="0" spacing="15.0">
+            <VBox fx:id="loginCard" alignment="CENTER" spacing="15" styleClass="login-card">
+                <Label text="Вход в аккаунт" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black;"/>
+                <Label fx:id="statusLabel" text="" style="-fx-text-fill: red;"/>
+                <TextField fx:id="usernameField" promptText="Имя пользователя"/>
+                <PasswordField fx:id="passwordField" promptText="Пароль"/>
+                <Button fx:id="loginButton" text="Войти" onAction="#handleLogin" styleClass="button-main" prefWidth="Infinity"/>
+            </VBox>
+
+            <VBox fx:id="profileCard" visible="false" managed="false" style="-fx-background-color: #ffffff; -fx-padding: 15; -fx-background-radius: 5;" spacing="10.0">
+                <HBox alignment="CENTER_LEFT" spacing="5.0">
+                    <Label fx:id="loggedUserLabel" text="User" style="-fx-font-weight: bold;"/>
+                </HBox>
+                <ComboBox fx:id="versionComboBox" prefWidth="1.7976931348623157E308" promptText="Выберите версию"/>
+                <Button fx:id="launchButton" text="Играть" styleClass="button-main" prefHeight="40.0" onAction="#handleLaunch" prefWidth="Infinity"/>
+            </VBox>
+        </VBox>
+
+        <VBox GridPane.columnIndex="1" spacing="20.0">
+            <Label text="Последние новости" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            <Region prefHeight="200.0" style="-fx-background-color: rgba(0, 0, 0, 0.6); -fx-background-radius: 5;"/>
+
+            <Label text="Наши сообщества:" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Вконтакте" fx:id="vkButton" onAction="#onVkClicked" styleClass="social-button"/>
+                <Button text="Discord" fx:id="discordButton" onAction="#onDiscordClicked" styleClass="social-button, discord-button"/>
+            </HBox>
+        </VBox>
+    </GridPane>
+</AnchorPane>
