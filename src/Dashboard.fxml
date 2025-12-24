@@ -21,7 +21,7 @@
                 <Button fx:id="homeButton" text="Главная" styleClass="top-nav-button" onAction="#onHomeClicked"/>
                 <Button text="Сборки" styleClass="top-nav-button" />
                 <Button text="Сервера" styleClass="top-nav-button" />
-                <Button text="Оформление" styleClass="top-nav-button" />
+<!--                <Button text="Оформление" styleClass="top-nav-button" />-->
                 <Button fx:id="settingsButton" text="Настройки" styleClass="top-nav-button" onAction="#onSettingsClicked"/>
             </HBox>
 

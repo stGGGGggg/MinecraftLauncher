@@ -39,6 +39,9 @@
                 <CheckBox fx:id="closeOnLaunchCheckBox" text="Закрывать после запуска" textFill="WHITE" />
                 <CheckBox fx:id="enableSnapshotsCheckBox" text="Показывать Snapshot версии" textFill="WHITE" />
             </VBox>
+
+            <Label text="Тема оформления:" textFill="WHITE" GridPane.rowIndex="2" />
+            <ComboBox fx:id="themeComboBox" prefWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="2" />
         </GridPane>
 
         <Region VBox.vgrow="ALWAYS" />

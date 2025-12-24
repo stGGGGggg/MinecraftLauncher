@@ -12,6 +12,9 @@ public class SettingsController {
     private ComboBox<String> languageComboBox;
 
     @FXML
+    private ComboBox<String> themeComboBox;
+
+    @FXML
     private TextField widthField;
 
     @FXML
@@ -42,6 +45,8 @@ public class SettingsController {
         languageComboBox.getItems().addAll("Русский (Россия)", "English (US)", "Қазақша (Қазақстан)");
         languageComboBox.setValue("Русский (Россия)");
         saveButton.setOnAction(e -> handleSaveSettings());
+        themeComboBox.getItems().addAll("Тёмная (Стандартная)", "Светлая", "Космическая");
+        themeComboBox.setValue("Тёмная (Стандартная)");
 
     }
     private void initializeUIFromModel() {
@@ -79,6 +84,12 @@ public class SettingsController {
             System.out.println("Language: " + lang);
             System.out.println("Resolution: " + width + "x" + height);
             System.out.println("Close on launch: " + closeOnLaunch);
+            String selectedTheme = themeComboBox.getValue();
+
+            // Передаем в модель (нужно будет добавить поле theme в SettingsModel.java)
+            settingsModel.setTheme(selectedTheme);
+
+            System.out.println("Выбранная тема: " + selectedTheme);
 
             // Показываем подтверждение
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

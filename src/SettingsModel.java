@@ -1,5 +1,6 @@
 public class SettingsModel {
     private String language = "Русский (Россия)";
+    private String theme = "Тёмная (Стандартная)";
     private int width = 800;
     private int height = 600;
     private boolean closeOnLaunch = true;
@@ -22,4 +23,6 @@ public class SettingsModel {
     public void setEnableSnapshots(boolean enableSnapshots) { this.enableSnapshots = enableSnapshots; }
 
 
+    public String getTheme() { return theme; }
+    public void setTheme(String theme) { this.theme = theme; }
 }
