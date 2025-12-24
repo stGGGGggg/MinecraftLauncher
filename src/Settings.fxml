@@ -5,33 +5,45 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:controller="SettingsController"  alignment="TOP_LEFT" spacing="20.0" styleClass="home-background"
-      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:controller="SettingsController" styleClass="home-background"
+           xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
 
-    <padding>
-        <Insets top="30.0" right="50.0" bottom="30.0" left="50.0" />
-    </padding>
-    <Label text="Настройки лаунчера" >
-        <font>
-            <Font name="System Bold" size="24.0" />
-        </font>
-    </Label>
-    <Separator prefWidth="200.0" />
+    <VBox spacing="25.0" maxWidth="600" maxHeight="550"
+          style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 20; -fx-padding: 40;">
 
-    <VBox spacing="5.0">
-        <Label text="Язык (Language):" style="-fx-font-weight: bold; -fx-text-fill: FFFFFF;" />
-        <ComboBox fx:id="languageComboBox"  prefWidth="200.0" promptText="Русский (Россия)" />
+        <Label text="Настройки лаунчера" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="28.0" />
+            </font>
+        </Label>
+
+        <Separator opacity="0.3" />
+
+        <GridPane vgap="20" hgap="20">
+            <columnConstraints>
+                <ColumnConstraints minWidth="150" prefWidth="200" />
+                <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+
+            <Label text="Язык интерфейса:" textFill="WHITE" GridPane.rowIndex="0" />
+            <ComboBox fx:id="languageComboBox" prefWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label text="Разрешение окна:" textFill="WHITE" GridPane.rowIndex="1" />
+            <HBox spacing="10" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <TextField fx:id="widthField" prefWidth="80" promptText="Ширина" />
+                <Label text="x" textFill="WHITE" />
+                <TextField fx:id="heightField" prefWidth="80" promptText="Высота" />
+            </HBox>
+
+            <VBox spacing="12" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                <CheckBox fx:id="closeOnLaunchCheckBox" text="Закрывать после запуска" textFill="WHITE" />
+                <CheckBox fx:id="enableSnapshotsCheckBox" text="Показывать Snapshot версии" textFill="WHITE" />
+            </VBox>
+        </GridPane>
+
+        <Region VBox.vgrow="ALWAYS" />
+
+        <Button fx:id="saveButton" text="СОХРАНИТЬ ИЗМЕНЕНИЯ" styleClass="button-main"
+                prefWidth="Infinity" prefHeight="45" style="-fx-font-weight: bold;" />
     </VBox>
-
-    <VBox spacing="5.0">
-        <Label text="Разрешение игры (Resolution):" style="-fx-font-weight: bold; -fx-text-fill: FFFFFF;" />
-        <HBox spacing="10.0" alignment="CENTER_LEFT">
-            <TextField fx:id="widthField" promptText="Ширина (e.g. 854)" />  <Label text="x" />
-            <TextField fx:id="heightField" promptText="Высота (e.g. 480)" /> </HBox>
-    </VBox>
-
-    <VBox spacing="5.0">
-        <Label text="Настройки запуска:" style="-fx-font-weight: bold;" />
-        <CheckBox fx:id="closeOnLaunchCheckBox" text="Закрыть лаунчер после запуска игры" /> <CheckBox fx:id="enableSnapshotsCheckBox" text="Разрешить бета-версии (Snapshots)" /> </VBox>
-
-    <Button fx:id="saveButton" text="Сохранить настройки" styleClass="button-main" /> </VBox>
+</StackPane>
