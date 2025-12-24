@@ -28,6 +28,8 @@
                 <TextField fx:id="usernameField" promptText="Имя пользователя"/>
                 <PasswordField fx:id="passwordField" promptText="Пароль"/>
                 <Button fx:id="loginButton" text="Войти" onAction="#handleLogin" styleClass="button-main" prefWidth="Infinity"/>
+                <Button fx:id="registerButton" text="Регистрация" onAction="#handleRegister"
+                        style="-fx-background-color: transparent; -fx-text-fill: #3D5AFE; -fx-cursor: hand;" />
             </VBox>
 
             <VBox fx:id="profileCard" visible="false" managed="false" style="-fx-background-color: #ffffff; -fx-padding: 15; -fx-background-radius: 5;" spacing="10.0">

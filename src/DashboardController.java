@@ -47,6 +47,28 @@ public class DashboardController {
         }
     }
 
+    @FXML
+    public void handleRegister(ActionEvent event) {
+        String username = usernameField.getText().trim();
+        String password = passwordField.getText().trim();
+
+        if (username.isEmpty() || password.isEmpty()) {
+            statusLabel.setText("Заполните все поля!");
+            return;
+        }
+
+        // Хешируем пароль перед сохранением (как ты и делал для входа)
+        String hashedPassword = hashPassword(password);
+
+        if (DatabaseHelper.registerUser(username, hashedPassword)) {
+            statusLabel.setText("Регистрация успешна! Теперь войдите.");
+            statusLabel.setStyle("-fx-text-fill: green;");
+        } else {
+            statusLabel.setText("Ошибка: Имя уже занято!");
+            statusLabel.setStyle("-fx-text-fill: red;");
+        }
+    }
+
     private void updateHomeViewToProfile(String username) {
         if (loginCard != null) {
             loginCard.setVisible(false);
