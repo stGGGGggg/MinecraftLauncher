@@ -19,7 +19,6 @@
 
             <HBox spacing="10" styleClass="top-nav-buttons">
                 <Button fx:id="homeButton" text="Главная" styleClass="top-nav-button" onAction="#onHomeClicked"/>
-                <Button text="Игры" styleClass="top-nav-button" />
                 <Button text="Сборки" styleClass="top-nav-button" />
                 <Button text="Сервера" styleClass="top-nav-button" />
                 <Button text="Оформление" styleClass="top-nav-button" />
