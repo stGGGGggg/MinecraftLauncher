@@ -26,6 +26,8 @@ public class SettingsController {
     @FXML
     private CheckBox enableSnapshotsCheckBox;
 
+    private DashboardController mainController;
+
     @FXML
     private Button saveButton;
 
@@ -36,6 +38,9 @@ public class SettingsController {
     public void setSettingsModel(SettingsModel model) {
         this.settingsModel = model;
         initializeUIFromModel(); // Загружаем данные в UI после получения модели
+    }
+    public void setMainController(DashboardController mainController) {
+        this.mainController = mainController;
     }
 
 
@@ -78,6 +83,10 @@ public class SettingsController {
             settingsModel.setEnableSnapshots(enableSnapshots);
 
             System.out.println("Settings saved to Model.");
+
+            if (mainController != null) {
+                mainController.applyTheme();
+            }
 
             // Здесь должна быть логика сохранения в файл/базу данных
             System.out.println("Settings saved:");

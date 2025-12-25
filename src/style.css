@@ -143,3 +143,28 @@
     -fx-background-color: rgba(255, 255, 255, 0.1);
     -fx-text-fill: white;
 }
+/* Базовые настройки фона (чтобы картинка тянулась) */
+.background-container {
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+
+/* === ТЕМЫ === */
+
+/* Тёмная (твоя стандартная) */
+.theme-dark {
+    -fx-background-image: url('launcher.jpg');
+}
+
+/* Светлая (градиент) */
+.theme-light {
+    -fx-background-color: linear-gradient(to bottom right, #ffffff, #e0eafc);
+    /* Если будет картинка: -fx-background-image: url('light.jpg'); */
+}
+
+/* Космическая (тёмно-синий градиент) */
+.theme-space {
+    -fx-background-color: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+    /* Если будет картинка: -fx-background-image: url('space.jpg'); */
+}

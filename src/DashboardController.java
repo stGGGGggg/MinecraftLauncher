@@ -34,6 +34,7 @@ public class DashboardController {
 
     public void startDashboard() {
         loadPage("Home.fxml");
+        applyTheme();
         if (homeButton != null) setActiveButton(homeButton);
     }
 
@@ -139,6 +140,7 @@ public class DashboardController {
             if (fxmlFileName.equals("Settings.fxml")) {
                 SettingsController sc = loader.getController();
                 sc.setSettingsModel(this.settings);
+                sc.setMainController(this);
             }
             contentArea.getChildren().add(newPane);
         } catch (IOException e) { e.printStackTrace(); }
@@ -156,7 +158,7 @@ public class DashboardController {
     @FXML public void handleLaunch(ActionEvent event) { System.out.println("Minecraft launch initiated..."); }
 
     @FXML private void onVkClicked(ActionEvent event) { openLink("https://vk.com/club234535356"); }
-    @FXML private void onDiscordClicked(ActionEvent event) { openLink("https://discord.gg/fKxMdHps"); }
+    @FXML private void onDiscordClicked(ActionEvent event) { openLink("https://discord.gg/Tzr4yfXPN4"); }
 
     private void openLink(String url) {
         try {
@@ -169,5 +171,26 @@ public class DashboardController {
     @FXML private void onExit(ActionEvent event) {
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         stage.close();
+    }
+    public void applyTheme() {
+        // 1. Снимаем все старые темы
+        contentArea.getStyleClass().removeAll("theme-dark", "theme-light", "theme-space");
+        contentArea.getStyleClass().add("background-container"); // База
+
+        // 2. Смотрим, что выбрано в настройках
+        String theme = settings.getTheme();
+
+        // 3. Ставим нужный класс
+        switch (theme) {
+            case "Светлая":
+                contentArea.getStyleClass().add("theme-light");
+                break;
+            case "Космическая":
+                contentArea.getStyleClass().add("theme-space");
+                break;
+            default: // "Тёмная (Стандартная)" и всё остальное
+                contentArea.getStyleClass().add("theme-dark");
+                break;
+        }
     }
 }
