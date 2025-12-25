@@ -121,3 +121,25 @@
 .discord-button:hover {
     -fx-background-color: #4a54c9;
 }
+.news-list {
+    -fx-background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон */
+    -fx-background-radius: 5;
+    -fx-border-width: 0;
+}
+
+.news-list .list-cell {
+    -fx-background-color: transparent; /* Прозрачные ячейки */
+    -fx-text-fill: white; /* Белый текст */
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+}
+
+.news-list .list-cell:empty {
+    -fx-background-color: transparent; /* Убираем белые полосы в пустом месте */
+}
+
+/* Убираем синюю подсветку при выборе */
+.news-list .list-cell:filled:selected:focused, .news-list .list-cell:filled:selected {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-text-fill: white;
+}

@@ -43,7 +43,7 @@
 
         <VBox GridPane.columnIndex="1" spacing="20.0">
             <Label text="Последние новости" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;"/>
-            <Region prefHeight="200.0" style="-fx-background-color: rgba(0, 0, 0, 0.6); -fx-background-radius: 5;"/>
+            <ListView fx:id="newsList" prefHeight="200.0" styleClass="news-list" />
 
             <Label text="Наши сообщества:" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
             <HBox spacing="10" alignment="CENTER">

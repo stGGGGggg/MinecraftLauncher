@@ -10,6 +10,10 @@ import java.awt.Desktop;
 import java.net.URI;
 import java.io.IOException;
 import java.security.MessageDigest;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+import java.io.File;
 
 public class DashboardController {
 
@@ -23,6 +27,7 @@ public class DashboardController {
     @FXML private VBox profileCard;
     @FXML private Label loggedUserLabel;
     @FXML private ComboBox<String> versionComboBox;
+    @FXML private ListView<String> newsList;
 
     private SettingsModel settings = new SettingsModel();
     private boolean isLoggedIn = false;
@@ -85,6 +90,26 @@ public class DashboardController {
         }
     }
 
+    private void loadNews() {
+        if (newsList == null) return;
+
+        newsList.getItems().clear();
+        try {
+            // Ищем файл news.txt.txt в корне проекта
+            File file = new File("news.txt");
+            if (file.exists()) {
+                List<String> lines = Files.readAllLines(file.toPath());
+                newsList.getItems().addAll(lines);
+            } else {
+                newsList.getItems().add("Файл news.txt.txt не найден.");
+                newsList.getItems().add("Создайте его в папке с лаунчером.");
+            }
+        } catch (Exception e) {
+            newsList.getItems().add("Ошибка загрузки новостей.");
+            e.printStackTrace();
+        }
+    }
+
     private String hashPassword(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -106,6 +131,11 @@ public class DashboardController {
             }
 
             Pane newPane = loader.load();
+
+            if (fxmlFileName.equals("Home.fxml")) {
+                loadNews(); // Загружаем новости сразу после открытия Главной
+            }
+
             if (fxmlFileName.equals("Settings.fxml")) {
                 SettingsController sc = loader.getController();
                 sc.setSettingsModel(this.settings);
